@@ -1,0 +1,45 @@
+{
+  "dataset": "Superstore Sales (order-level, aggregated to weekly)",
+  "eda_summary": {
+    "n_weeks": 209,
+    "date_range": [
+      "2009-01-05",
+      "2012-12-31"
+    ],
+    "mean_weekly_sales": 71366.51,
+    "peak_month": 12,
+    "lowest_month": 6
+  },
+  "test_horizon_weeks": 12,
+  "model_comparison": {
+    "naive_lag1_baseline": {
+      "MAE": 36464.77,
+      "RMSE": 51929.05,
+      "MAPE_pct": 48.61
+    },
+    "random_forest": {
+      "MAE": 26006.49,
+      "RMSE": 34997.33,
+      "MAPE_pct": 39.8
+    },
+    "gradient_boosting": {
+      "MAE": 27336.13,
+      "RMSE": 34672.09,
+      "MAPE_pct": 40.3
+    }
+  },
+  "best_model": "gradient_boosting",
+  "top_forecast_drivers": {
+    "roll_std_4": 0.1376,
+    "lag_8": 0.0891,
+    "lag_1": 0.0854,
+    "roll_mean_8": 0.0847,
+    "lag_5": 0.0843,
+    "lag_6": 0.0831,
+    "lag_2": 0.0815,
+    "lag_4": 0.0721,
+    "lag_7": 0.0714,
+    "week_of_year": 0.063
+  },
+  "observations": "Weekly sales peak around month 12 and dip around month 6, consistent with seasonal retail demand. The gradient boosting model reduced RMSE by 33.2% versus the naive last-value baseline."
+}
